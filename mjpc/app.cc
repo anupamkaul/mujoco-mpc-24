@@ -42,7 +42,7 @@
 
 //ABSL_FLAG(std::string, task, "Quadruped Flat",
 
-ABSL_FLAG(std::string, task, "Humanoid Walk",
+ABSL_FLAG(std::string, task, "Humanoid Stand",
           "Which model to load on startup.");
 
 //ABSL_FLAG(bool, planner_enabled, false,
