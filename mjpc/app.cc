@@ -403,7 +403,7 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks) {
   printf("MuJoCo MPC (MJPC)\n");
 
   // MuJoCo
-  std::printf(" MuJoCo version %s\n", mj_versionString());
+  std::printf("Anupam's MuJoCo version %s\n", mj_versionString());
   if (mjVERSION_HEADER != mj_version()) {
     mju_error("Headers and library have Different versions");
   }
@@ -424,6 +424,7 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks) {
   if (task_name.empty()) {  // shouldn't happen, flag has a default value
     sim->agent->gui_task_id = 0;
   } else {
+    printf(" Task: %s\n", task_name.c_str());
     sim->agent->gui_task_id = sim->agent->GetTaskIdByName(task_name);
     if (sim->agent->gui_task_id == -1) {
       std::cerr << "Invalid --task flag: '" << task_name
