@@ -44,7 +44,10 @@
 
 ABSL_FLAG(std::string, task, "Humanoid Walk",
           "Which model to load on startup.");
-ABSL_FLAG(bool, planner_enabled, false,
+
+//ABSL_FLAG(bool, planner_enabled, false,
+
+ABSL_FLAG(bool, planner_enabled, true,
           "If true, the planner will run on startup");
 ABSL_FLAG(float, sim_percent_realtime, 100,
           "The realtime percentage at which the simulation will be launched.");
