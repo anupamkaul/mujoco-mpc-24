@@ -43,6 +43,7 @@
 //ABSL_FLAG(std::string, task, "Quadruped Flat",
 
 ABSL_FLAG(std::string, task, "Humanoid Stand",
+//ABSL_FLAG(std::string, task, "Humanoid Track",
           "Which model to load on startup.");
 
 //ABSL_FLAG(bool, planner_enabled, false,
@@ -55,7 +56,8 @@ ABSL_FLAG(bool, estimator_enabled, false,
           "If true, estimator loop will run on startup");
 ABSL_FLAG(bool, show_left_ui, true,
           "If true, the left UI (ui0) will be visible on startup");
-ABSL_FLAG(bool, show_plot, true,
+//ABSL_FLAG(bool, show_plot, true,
+ABSL_FLAG(bool, show_plot, false,
           "If true, the plots will be visible on startup");
 ABSL_FLAG(bool, show_info, true,
           "If true, the infotext panel will be visible on startup");
