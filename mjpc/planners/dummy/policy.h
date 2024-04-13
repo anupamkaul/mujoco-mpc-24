@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef MJPC_PLANNERS_ILQG_POLICY_H_
-#define MJPC_PLANNERS_ILQG_POLICY_H_
+#ifndef MJPC_PLANNERS_DUMMY_POLICY_H_
+#define MJPC_PLANNERS_DUMMY_POLICY_H_
 
 #include <vector>
 
@@ -68,4 +68,4 @@ class dummyPolicy : public Policy {
 
 }  // namespace mjpc
 
-#endif  // MJPC_PLANNERS_ILQG_POLICY_H_
+#endif  // MJPC_PLANNERS_DUMMY_POLICY_H_

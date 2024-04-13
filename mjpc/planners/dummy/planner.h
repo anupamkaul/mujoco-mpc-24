@@ -12,16 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef MJPC_PLANNERS_ILQG_PLANNER_H_
-#define MJPC_PLANNERS_ILQG_PLANNER_H_
+#ifndef MJPC_PLANNERS_DUMMY_PLANNER_H_
+#define MJPC_PLANNERS_DUMMY_PLANNER_H_
 
 #include <shared_mutex>
 #include <vector>
 
 #include <mujoco/mujoco.h>
-#include "mjpc/planners/ilqg/backward_pass.h"
-#include "mjpc/planners/ilqg/policy.h"
-#include "mjpc/planners/ilqg/settings.h"
+#include "mjpc/planners/dummy/backward_pass.h"
+#include "mjpc/planners/dummy/policy.h"
+#include "mjpc/planners/dummy/settings.h"
 #include "mjpc/planners/planner.h"
 #include "mjpc/states/state.h"
 #include "mjpc/trajectory.h"
@@ -162,4 +162,4 @@ class dummyPlanner : public Planner {
 
 }  // namespace mjpc
 
-#endif  // MJPC_PLANNERS_ILQG_PLANNER_H_
+#endif  // MJPC_PLANNERS_DUMMY_PLANNER_H_

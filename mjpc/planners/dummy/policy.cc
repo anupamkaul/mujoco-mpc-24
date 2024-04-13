@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "mjpc/planners/ilqg/policy.h"
+#include "mjpc/planners/dummy/policy.h"
 
 #include <algorithm>
 
@@ -53,7 +53,7 @@ void dummyPolicy::Allocate(const mjModel* model, const Task& task, int horizon) 
   state_interp.resize(model->nq + model->nv + model->na);
 
   // representation
-  representation = GetNumberOrDefault(1, model, "ilqg_representation");
+  representation = GetNumberOrDefault(1, model, "dummy_representation");
 }
 
 // reset memory to zeros

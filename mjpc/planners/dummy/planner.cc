@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "mjpc/planners/ilqg/planner.h"
+#include "mjpc/planners/dummy/planner.h"
 
 #include <algorithm>
 #include <chrono>
@@ -23,9 +23,9 @@
 
 #include <mujoco/mujoco.h>
 #include "mjpc/array_safety.h"
-#include "mjpc/planners/ilqg/backward_pass.h"
-#include "mjpc/planners/ilqg/policy.h"
-#include "mjpc/planners/ilqg/settings.h"
+#include "mjpc/planners/dummy/backward_pass.h"
+#include "mjpc/planners/dummy/policy.h"
+#include "mjpc/planners/dummy/settings.h"
 #include "mjpc/planners/planner.h"
 #include "mjpc/states/state.h"
 #include "mjpc/task.h"
@@ -59,9 +59,9 @@ void dummyPlanner::Initialize(mjModel* model, const Task& task) {
   dim_max =
       mju_max(mju_max(mju_max(dim_state, dim_state_derivative), dim_action),
               model->nuser_sensor);
-  num_rollouts_gui_ = GetNumberOrDefault(10, model, "ilqg_num_rollouts");
+  num_rollouts_gui_ = GetNumberOrDefault(10, model, "dummy_num_rollouts");
   settings.regularization_type = GetNumberOrDefault(
-      settings.regularization_type, model, "ilqg_regularization_type");
+      settings.regularization_type, model, "dummy_regularization_type");
 }
 
 // allocate memory

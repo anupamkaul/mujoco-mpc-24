@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef MJPC_PLANNERS_ILQG_SETTINGS_H_
-#define MJPC_PLANNERS_ILQG_SETTINGS_H_
+#ifndef MJPC_PLANNERS_DUMMY_SETTINGS_H_
+#define MJPC_PLANNERS_DUMMY_SETTINGS_H_
 
 namespace mjpc {
 
@@ -34,4 +34,4 @@ struct dummySettings {
 
 }  // namespace mjpc
 
-#endif  // MJPC_PLANNERS_ILQG_SETTINGS_H_
+#endif  // MJPC_PLANNERS_DUMMY_SETTINGS_H_

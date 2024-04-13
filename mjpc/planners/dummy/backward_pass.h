@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef MJPC_PLANNERS_ILQG_BACKWARD_PASS_H_
-#define MJPC_PLANNERS_ILQG_BACKWARD_PASS_H_
+#ifndef MJPC_PLANNERS_DUMMY_BACKWARD_PASS_H_
+#define MJPC_PLANNERS_DUMMY_BACKWARD_PASS_H_
 
 #include <vector>
 
 #include "mjpc/planners/cost_derivatives.h"
-#include "mjpc/planners/ilqg/boxqp.h"
-#include "mjpc/planners/ilqg/policy.h"
-#include "mjpc/planners/ilqg/settings.h"
+#include "mjpc/planners/dummy/boxqp.h"
+#include "mjpc/planners/dummy/policy.h"
+#include "mjpc/planners/dummy/settings.h"
 #include "mjpc/planners/model_derivatives.h"
 
 namespace mjpc {
@@ -90,4 +90,4 @@ class dummyBackwardPass {
 
 }  // namespace mjpc
 
-#endif  // MJPC_PLANNERS_ILQG_BACKWARD_PASS_H_
+#endif  // MJPC_PLANNERS_DUMMY_BACKWARD_PASS_H_

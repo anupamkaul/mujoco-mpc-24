@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef MJPC_PLANNERS_ILQG_BOXQP_H_
-#define MJPC_PLANNERS_ILQG_BOXQP_H_
+#ifndef MJPC_PLANNERS_DUMMY_BOXQP_H_
+#define MJPC_PLANNERS_DUMMY_BOXQP_H_
 
 #include <cstdlib>
 #include <vector>
@@ -60,4 +60,4 @@ class BoxQP {
 
 }  // namespace mjpc
 
-#endif  // MJPC_PLANNERS_ILQG_BOXQP_H_
+#endif  // MJPC_PLANNERS_DUMMY_BOXQP_H_

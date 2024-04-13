@@ -114,6 +114,14 @@ add_library(
   planners/ilqg/settings.h
   planners/ilqs/planner.cc
   planners/ilqs/planner.h
+  planners/dummy/backward_pass.cc
+  planners/dummy/backward_pass.h
+  planners/dummy/boxqp.h
+  planners/dummy/planner.cc
+  planners/dummy/planner.h
+  planners/dummy/policy.cc
+  planners/dummy/policy.h
+  planners/dummy/settings.h
   estimators/batch.cc
   estimators/batch.h
   estimators/estimator.h
