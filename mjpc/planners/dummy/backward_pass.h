@@ -25,10 +25,10 @@
 
 namespace mjpc {
 
-enum BackwardPassRegularization : int {
-  kControlRegularization = 0,
-  kStateControlRegularization,
-  kValueRegularization
+enum dummyBackwardPassRegularization : int {
+  dummykControlRegularization = 0,
+  dummykStateControlRegularization,
+  dummykValueRegularization
 };
 
 // data and methods to compute dummy backward pass
@@ -54,13 +54,13 @@ class dummyBackwardPass {
                   const double *cuut, double *Vxt, double *Vxxt, double *dut,
                   double *Kt, double *dV, double *Qxt, double *Qut,
                   double *Qxxt, double *Qxut, double *Quut, double *scratch,
-                  BoxQP &boxqp, const double *action,
+                  dummyBoxQP &boxqp, const double *action,
                   const double *action_limits, int reg_type, int limits);
 
   // compute backward pass using Riccati
   int Riccati(dummyPolicy *p, const ModelDerivatives *md,
               const CostDerivatives *cd, int dim_dstate, int dim_action, int T,
-              double reg, BoxQP &boxqp, const double *actions,
+              double reg, dummyBoxQP &boxqp, const double *actions,
               const double *action_limits, const dummySettings &settings);
 
   // scale backward pass regularization

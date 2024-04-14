@@ -125,7 +125,7 @@ class dummyPlanner : public Planner {
   dummyBackwardPass backward_pass;
 
   // boxQP
-  BoxQP boxqp;
+  dummyBoxQP boxqp;
 
   // step sizes
   double linesearch_steps[kMaxTrajectory];

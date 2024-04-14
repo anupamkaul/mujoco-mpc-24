@@ -25,13 +25,13 @@ namespace mjpc {
 // ----- boxQP data ----- //
 // min 0.5 res' H res + res' g
 //  st lower <= res <= upper
-class BoxQP {
+class dummyBoxQP {
  public:
   // constructor
-  BoxQP() = default;
+  dummyBoxQP() = default;
 
   // destructor
-  ~BoxQP() = default;
+  ~dummyBoxQP() = default;
 
   // allocate memory
   void Allocate(int n) {

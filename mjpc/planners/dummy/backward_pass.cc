@@ -67,7 +67,7 @@ int dummyBackwardPass::RiccatiStep(
     const double *At, const double *Bt, const double *cxt, const double *cut,
     const double *cxxt, const double *cxut, const double *cuut, double *Vxt,
     double *Vxxt, double *dut, double *Kt, double *dV, double *Qxt, double *Qut,
-    double *Qxxt, double *Qxut, double *Quut, double *scratch, BoxQP &boxqp,
+    double *Qxxt, double *Qxut, double *Quut, double *scratch, dummyBoxQP &boxqp,
     const double *action, const double *action_limits, int reg_type,
     int limits) {
   int i, mmn = mju_max(m, n);
@@ -113,7 +113,7 @@ int dummyBackwardPass::RiccatiStep(
   mju_addTo(Quut, cuut, m * m);
 
   //----- regularize ----- //
-  if (reg_type == kValueRegularization) {
+  if (reg_type == dummykValueRegularization) {
     // regularize cost-to-go
     mju_copy(Vxx_reg, Wxx, n * n);
     for (int i = 0; i < n; i++) {
@@ -138,11 +138,11 @@ int dummyBackwardPass::RiccatiStep(
   }
 
   if (mu) {
-    if (reg_type == kControlRegularization) {
+    if (reg_type == dummykControlRegularization) {
       for (i = 0; i < m; i++) {
         Quu_reg[i * m + i] += mu;  // Quu_reg = Quut + mu*eye(m)
       }
-    } else if (reg_type == kStateControlRegularization) {
+    } else if (reg_type == dummykStateControlRegularization) {
       mju_mulMatTMat(tmp, At, Bt, n, n, m);
       mju_addToScl(Qxu_reg, tmp, mu,
                    m * n);  // Qxu_reg = Qxut + mu*At'*Bt
@@ -252,7 +252,7 @@ int dummyBackwardPass::RiccatiStep(
 // compute backward pass using Riccati
 int dummyBackwardPass::Riccati(dummyPolicy *p, const ModelDerivatives *md,
                               const CostDerivatives *cd, int dim_dstate,
-                              int dim_action, int T, double reg, BoxQP &boxqp,
+                              int dim_action, int T, double reg, dummyBoxQP &boxqp,
                               const double *actions,
                               const double *action_limits,
                               const dummySettings &settings) {
