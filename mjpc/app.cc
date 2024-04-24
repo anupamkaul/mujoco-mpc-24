@@ -239,6 +239,9 @@ void PhysicsLoop(mj::Simulate& sim) {
         sim.agent->Initialize(mnew);
         sim.agent->plot_enabled = absl::GetFlag(FLAGS_show_plot);
         sim.agent->plan_enabled = absl::GetFlag(FLAGS_planner_enabled);
+
+        std::printf("Show Plot Value: %d\n", sim.agent->plot_enabled);
+        std::printf("Show Plan Value: %d\n", sim.agent->plan_enabled);
         sim.agent->Allocate();
 
         // set home keyframe
@@ -434,6 +437,15 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks) {
       std::cerr << sim->agent->GetTaskNames();
       mju_error("Invalid --task flag.");
     }
+  }
+
+  // bug-show: agent should set flag values on default invocation, not just on task reload (phys.sim in namespace mj)
+  {
+  sim->agent->plot_enabled = absl::GetFlag(FLAGS_show_plot);
+  sim->agent->plan_enabled = absl::GetFlag(FLAGS_planner_enabled);
+
+  std::printf("Show Default Plot Value: %d\n", sim->agent->plot_enabled);
+  std::printf("Show Default Plan Value: %d\n", sim->agent->plan_enabled);
   }
 
   sim->filename = sim->agent->GetTaskXmlPath(sim->agent->gui_task_id);
