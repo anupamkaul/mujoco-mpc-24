@@ -7,7 +7,7 @@
   <custom>
     <text name="task_transition" data="Jump|Kick Spin|Spin Kick|Cartwheel (1)|Crouch Flip|Cartwheel (2)|Monkey Flip|Dance|Run|Walk" />
     <numeric name="sampling_representation" data="2" />
-    <numeric name="agent_planner" data="2" />
+    <numeric name="agent_planner" data="5" />
     <numeric name="agent_horizon" data="0.5" />
     <numeric name="agent_timestep" data="0.005" />
     <numeric name="sampling_spline_points" data="16" />

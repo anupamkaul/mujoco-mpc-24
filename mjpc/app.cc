@@ -408,7 +408,7 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks) {
   printf("MuJoCo MPC (MJPC)\n");
 
   // MuJoCo
-  std::printf("Anupam's MuJoCo version %s\n", mj_versionString());
+  std::printf("Anupam's (new) MuJoCo version %s\n", mj_versionString());
   if (mjVERSION_HEADER != mj_version()) {
     mju_error("Headers and library have Different versions");
   }
