@@ -39,6 +39,8 @@ void CrossEntropyPlanner::Initialize(mjModel* model, const Task& task) {
   // delete mjData instances since model might have changed.
   data_.clear();
 
+  printf("Init Cross Entropy Planner\n");
+
   // allocate one mjData for nominal.
   ResizeMjData(model, 1);
 
@@ -163,6 +165,8 @@ void CrossEntropyPlanner::OptimizePolicy(int horizon, ThreadPool& pool) {
   // num_trajectory_ might change while this function runs. Keep it constant
   // for the duration of this function.
   int num_trajectory = num_trajectory_;
+
+  printf("Cross Entropy : Optimize and update policy\n");
 
   // n_elite_ might change in the GUI - keep constant for in this function
   n_elite_ = std::min(n_elite_, num_trajectory);
