@@ -71,6 +71,9 @@ void CrossEntropyPlanner::Initialize(mjModel* model, const Task& task) {
 
 // allocate memory
 void CrossEntropyPlanner::Allocate() {
+
+  printf("Cross Entropy Planner Allocate\n");
+
   // initial state
   int num_state = model->nq + model->nv + model->na;
 
@@ -116,6 +119,10 @@ void CrossEntropyPlanner::Allocate() {
 // reset memory to zeros
 void CrossEntropyPlanner::Reset(int horizon,
                                 const double* initial_repeated_action) {
+
+   
+  printf("Cross Entropy Planner Reset\n");
+
   // state
   std::fill(state.begin(), state.end(), 0.0);
   std::fill(mocap.begin(), mocap.end(), 0.0);
@@ -166,7 +173,7 @@ void CrossEntropyPlanner::OptimizePolicy(int horizon, ThreadPool& pool) {
   // for the duration of this function.
   int num_trajectory = num_trajectory_;
 
-  printf("Cross Entropy : Optimize and update policy\n");
+  printf("Cross Entropy Planner : Optimize and update policy\n");
 
   // n_elite_ might change in the GUI - keep constant for in this function
   n_elite_ = std::min(n_elite_, num_trajectory);
@@ -273,6 +280,10 @@ void CrossEntropyPlanner::OptimizePolicy(int horizon, ThreadPool& pool) {
 
 // compute trajectory using nominal policy
 void CrossEntropyPlanner::NominalTrajectory(int horizon) {
+
+  
+  printf("Cross Entropy Planner Nominal Trajectory\n");
+
   // set policy
   auto nominal_policy = [&cp = resampled_policy](
                             double* action, const double* state, double time) {
@@ -301,6 +312,10 @@ void CrossEntropyPlanner::ActionFromPolicy(double* action, const double* state,
 
 // update policy via resampling
 void CrossEntropyPlanner::ResamplePolicy(int horizon) {
+
+   
+  printf("Cross Entropy Planner ResamplePolicy\n");
+
   // dimensions
   int num_parameters = resampled_policy.num_parameters;
   int num_spline_points = resampled_policy.num_spline_points;
@@ -332,6 +347,10 @@ void CrossEntropyPlanner::ResamplePolicy(int horizon) {
 
 // add random noise to nominal policy
 void CrossEntropyPlanner::AddNoiseToPolicy(int i, double std_min) {
+
+   
+  printf("Cross Entropy Planner AddNoiseToPolicy\n");
+
   // start timer
   auto noise_start = std::chrono::steady_clock::now();
 
@@ -371,6 +390,9 @@ void CrossEntropyPlanner::AddNoiseToPolicy(int i, double std_min) {
 // compute candidate trajectories
 void CrossEntropyPlanner::Rollouts(int num_trajectory, int horizon,
                                    ThreadPool& pool) {
+
+  
+  printf("Cross Entropy Planner Rollouts\n");
   // reset noise compute time
   noise_compute_time = 0.0;
 
@@ -432,6 +454,9 @@ void CrossEntropyPlanner::Traces(mjvScene* scn) {
   color[1] = 1.0;
   color[2] = 1.0;
   color[3] = 1.0;
+
+  
+  printf("Cross Entropy Planner Traces\n");
 
   // width of a sample trace, in pixels
   double width = GetNumberOrDefault(3, model, "agent_sample_width");
@@ -504,6 +529,9 @@ void CrossEntropyPlanner::GUI(mjUI& ui) {
 void CrossEntropyPlanner::Plots(mjvFigure* fig_planner, mjvFigure* fig_timer,
                                 int planner_shift, int timer_shift,
                                 int planning, int* shift) {
+
+   
+  printf("Cross Entropy Planner Plots\n");
   // ----- planner ----- //
   double planner_bounds[2] = {-6.0, 6.0};
 
